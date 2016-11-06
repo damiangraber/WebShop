@@ -14,3 +14,7 @@ Trzeba zmienić w bazie danych żeby adres dla Usera mógł być NULLem. Przy re
 Adres będzie można ustawić później z panelu usera.
 
 
+Admin:
+Głupota, bo głupota, ale informacje są niespójne.
+Na stronie 11 jest napisane, że klasa administratora ma mieć nazwę, mail i hasło. Na 4 stronie jest napisane, że tabela administratorów
+ma posiadać tylko maila i hasło. Proponuję zostać przy samym emailu i haśle.
