@@ -107,9 +107,10 @@ class User {
             $row = $res->fetch_assoc();
             $user = new User();
             $user->id = $row['id'];
-            $user->setName($row['fname']);
+            $user->setFname($row['fname']);
+            $user->setLname($row['lname']);
             $user->setEmail($row['email']);
-            $user->hashedPassword = $row['hashed_password'];
+            $user->setPassword($row['hashed_password']);
             $user->setShippingAddress($row['shippingAddress']);
 
             return $user;
@@ -129,7 +130,7 @@ class User {
                 $user = new User();
                 $user->id = $row['id'];
                 $user->setFname($row['fname']);
-                $user->setFname($row['lname']);
+                $user->setLname($row['lname']);
                 $user->setEmail($row['email']);
                 $user->hashedPassword = $row['hashed_password'];
                 $user->setShippingAddress($row['shippingAddress']);

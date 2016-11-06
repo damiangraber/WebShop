@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--tutaj sa nasze dane do testów-->
+<dataset>
+    <Users
+            id="1"
+            fname="Damian"
+            lname="Grabeczki"
+            email="damian.grabarz@gmail.com"
+            hashed_password="$2y$10$PSc/Ml65ux7/xGNcbraLn.reLKybOrJKZ8kedmJeuIGCHuWnN8PHW"
+            shipping_address="07-300, Ostrów Mazowiecka, ul.Niewiemjaka 5"
+    />
+    <!-- hasło: df4ghe4et4 -->
+    <Users
+            id="2"
+            fname="Maciej"
+            lname="Kejman"
+            email="maciej@gmail.com"
+            hashed_password="$2y$10$Qhwd1ZeBXctnijQKx9.oL.DhJI8b6WF3IEzLnUaLKCfpwJpfV3gnW"
+            shipping_address="00-111, Dom - pomiędzy Wrocławiem a Poznaniem"
+    />
+    <!-- hasło: rakieta-->
+</dataset>

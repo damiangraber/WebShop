@@ -6,4 +6,12 @@
         stopOnError="true"
         verbose="true">
     <!-- ... -->
+
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=WebShop;host=localhost"/>
+        <var name="DB_USER" value="root"/>
+        <var name="DB_PASSWD" value="coderslab"/>
+        <var name="DB_NAME" value="WebShop"/>
+        <var name="DB_HOST" value="localhost"/>
+    </php>
 </phpunit>

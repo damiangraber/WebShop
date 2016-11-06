@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--tutaj sa nasze dane do testów-->
+<dataset>
+    <Items
+            id="1"
+            name="Kindle"
+            price="600.99"
+            category_id="1"
+            description="Czytnik lepszy niż wszystkie"
+            quantity_on_stock="50"
+    />
+    <Items
+            id="2"
+            name="Playstation 4"
+            price="1299.99"
+            category_id="2"
+            description="Konsola nowej generacji"
+            quantity_on_stock="20"
+    />
+</dataset>

@@ -80,4 +80,57 @@ class Item {
         }
     }
 
+    public function saveToDB(mysqli $connection) {
+        if ($this->id == - 1) {
+            $query = "INSERT INTO Items (name, price, category_id, description, quantity_on_stock) 
+                VALUES ('$this->name', '$this->price', '$this->category','$this->description', '$this->quantityOnStock')";
+            if ($connection->query($query)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else { // na wypadek wywołania do obiektu gdzie istnieje
+
+            $query = "UPDATE Items 
+                 SET name = '$this->name',
+                 price= '$this->price',
+                 category_id = '$this->category',
+                 description = '$this->description',
+                 quantity_on_stock = '$this->quantityOnStock'
+                 WHERE id = $this->id";
+            if ($connection->query($query)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+    }
+
+    static public function loadAllItems(mysqli $connection) {
+        $query = "SELECT * FROM Items";
+
+        $items = [];
+        $res = $connection->query($query);
+
+        if ($res) {
+            foreach ($res as $row) {
+                $item = new Item();
+                $item->id = $row['id'];
+                $item->setName($row['name']);
+                $item->setPrice($row['price']);
+                $item->setCategory($row['category_id']);
+                $item->setDescription($row['description']);
+                $item->setQuantityOnStock($row['quantity_on_stock']);
+                $items[] = $item;
+            }
+        }
+
+        return $items;
+    }
+
+    public function addPhoto() {
+
+    }
+
 }
