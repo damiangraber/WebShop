@@ -2,7 +2,8 @@
 
 class User {
     private $id;
-    private $name;
+    private $fname;
+    private $lname;
     private $email;
     private $hashedPassword;
     private $shippingAdress;
@@ -10,25 +11,38 @@ class User {
 
     public function __construct(){
         $this->id = -1;
-        $this->name = '';
+        $this->fname = '';
+        $this->lname = '';
         $this->email = '';
         $this->hashedPassword = '';
         $this->shippingAddress = '';
     }
-    
-    public function getId() {
+    function getFname() {
+        return $this->fname;
+    }
+
+    function getLname() {
+        return $this->lname;
+    }
+
+    function setFname($fname) {
+        if(is_string($fname) && strlen(trim($fname)) >0){
+        $this->fname = $fname;
+        }
+    }
+
+    function setLname($lname) {
+        if(is_string($lname) && strlen(trim($lname)) >0){
+        $this->lname = $lname;
+        }
+    }
+
+        public function getId() {
         return $this->id;
     } 
     
-    public function setName($name){
-        if(is_string($name) && strlen(trim($name)) >0){
-            $this->name = trim($name);
-        }
-    }
-    
-    public function getName(){
-        return $this->name;
-    }
+        
+          
     
     
     public function setShippingAddress($shippingAddres){
@@ -61,8 +75,8 @@ class User {
     
     public function saveToDB(mysqli $connection){
         if($this->id == -1){
-            $query = "INSERT INTO Users (email, name, hashed_password) 
-                VALUES ('$this->email', '$this->name', '$this->hashedPassword')";
+            $query = "INSERT INTO Users (email, fname, lname, hashed_password, shipping_address) 
+                VALUES ('$this->email', '$this->fname', '$this->lname','$this->hashedPassword', '$this->shippingAdress')";
             if($connection->query($query)) {
                 return true;
             }  else {
@@ -71,9 +85,11 @@ class User {
         }  else { // na wypadek wywołania do obiektu gdzie istnieje
             
             $query = "UPDATE Users 
-                 SET name = '$this->name',
+                 SET fname = '$this->fname',
+                     lname= '$this->lname',
                  email = '$this->email',
-                 hashed_password = '$this->hashedPassword'
+                 hashed_password = '$this->hashedPassword',
+                  shipping_address = '$this->shippingAdress'
                  WHERE id = $this->id";
                     if($connection->query($query)){
                         return true;
@@ -92,7 +108,7 @@ class User {
             $row = $res->fetch_assoc();
             $user = new User();
             $user->id = $row['id'];
-            $user->setName($row['name']);
+            $user->setName($row['fname']);
             $user->setEmail($row['email']);
             $user->hashedPassword = $row['hashed_password'];
             $user->setShippingAddress($row['shippingAddress']);
@@ -112,7 +128,8 @@ class User {
         foreach ($res as $row) {
             $user = new User();
             $user->id = $row['id'];
-            $user->setName($row['name']);
+            $user->setFname($row['fname']);
+            $user->setFname($row['lname']);
             $user->setEmail($row['email']);
             $user->hashedPassword = $row['hashed_password'];
             $user->setShippingAddress($row['shippingAddress']);
@@ -144,7 +161,8 @@ class User {
             $row = $res->fetch_assoc();
             $user = new User();
             $user->id = $row['id'];
-            $user->setName($row['name']);
+            $user->setFname($row['fname']);
+            $user->setFname($row['lname']);
             $user->setEmail($row['email']);
             $user->hashedPassword = $row['hashed_password'];
             $user->setShippingAddress($row['shippingAddress']);
