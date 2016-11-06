@@ -11,5 +11,6 @@ Do każdej strony doklejamy menu  (head i navbar).
 
 
 Trzeba zmienić w bazie danych żeby adres dla Usera mógł być NULLem. Przy rejestracji nie będziemy wymagać wpisania adresu :)
+Adres będzie można ustawić później z panelu usera.
 
 
