@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 06 Lis 2016, 11:56
+-- Czas wygenerowania: 06 Lis 2016, 13:17
 -- Wersja serwera: 5.5.49-0ubuntu0.14.04.1
 -- Wersja PHP: 5.5.9-1ubuntu4.17
 
@@ -53,6 +53,20 @@ CREATE TABLE IF NOT EXISTS `Items` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `Items_photos`
+--
+
+CREATE TABLE IF NOT EXISTS `Items_photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `item_id` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `Users`
 --
 
@@ -76,6 +90,12 @@ CREATE TABLE IF NOT EXISTS `Users` (
 --
 ALTER TABLE `Items`
   ADD CONSTRAINT `Items_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`);
+
+--
+-- Ograniczenia dla tabeli `Items_photos`
+--
+ALTER TABLE `Items_photos`
+  ADD CONSTRAINT `Items_photos_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `Items` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
