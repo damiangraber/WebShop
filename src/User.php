@@ -81,7 +81,7 @@ class User {
             } else {
                 return false;
             }
-        } else { // na wypadek wywołania do obiektu gdzie istnieje
+        } else {
 
             $query = "UPDATE Users 
                  SET fname = '$this->fname',
