@@ -1,0 +1,15 @@
+2016-11-06:
+
+Dodać tabele:
+statusów zamówień,
+Orders
+Items_orders_details
+messages
+
+
+Do każdej strony doklejamy menu  (head i navbar).
+
+
+Trzeba zmienić w bazie danych żeby adres dla Usera mógł być NULLem. Przy rejestracji nie będziemy wymagać wpisania adresu :)
+
+
